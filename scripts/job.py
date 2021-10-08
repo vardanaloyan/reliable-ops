@@ -4,12 +4,17 @@ import click
 import requests
 from connector import Connector
 
-HOSTS = {
-    "node01": "http://127.0.0.1:8080",
-    "node02": "http://127.0.0.1:8080",
-    "node03": "http://127.0.0.1:8080",
-}
+# HOSTS = {
+#     "node01": "http://127.0.0.1:8080",
+#     "node02": "http://127.0.0.1:8080",
+#     "node03": "http://127.0.0.1:8080",
+# }
 
+HOSTS = {
+    "node01": "http://node01.app.internal.com/v1/",
+    "node02": "http://node01.app.internal.com/v1/",
+    "node03": "http://node01.app.internal.com/v1/",
+}
 N_PROC = 10  # Number of parallel processes
 
 test_groupId_list = [str(i) for i in range(0, 100)]  # groupIds list for tests

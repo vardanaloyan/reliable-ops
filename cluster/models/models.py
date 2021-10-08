@@ -1,3 +1,10 @@
+"""
+In this file each Model corresponds to the node.
+    Group1 -> node01
+    Group2 -> node02
+    Group3 -> node03
+"""
+
 from datetime import datetime
 
 from flask_sqlalchemy import SQLAlchemy

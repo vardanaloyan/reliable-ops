@@ -1,3 +1,5 @@
 venv/
 *.db
 storage
+*/__pycache__/
+__pycache__/
