@@ -8,9 +8,10 @@ services:
       - ./scripts:/scripts
       - ./confs/hosts.txt:/etc/hosts
       - ./confs/nginx.conf:/etc/nginx/nginx.conf
+      - ./confs/start.sh:/start.sh
     environment:
       CONFIG_PATH: "config.cluster"
-    command: ["bash", "/scripts/start.sh"]
+    command: ["bash", "/start.sh"]
     ports:
       - 8080:8080
     networks:

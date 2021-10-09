@@ -11,9 +11,9 @@ from connector import Connector
 # }
 
 HOSTS = {
-    "node01": "http://node01.app.internal.com/v1/",
-    "node02": "http://node01.app.internal.com/v1/",
-    "node03": "http://node01.app.internal.com/v1/",
+    "node01": "http://node01.app.internal.com/v1",
+    "node02": "http://node01.app.internal.com/v1",
+    "node03": "http://node01.app.internal.com/v1",
 }
 N_PROC = 10  # Number of parallel processes
 
@@ -52,6 +52,24 @@ def parallel_deletes():
     click.echo(f"Trying to delete {len(test_groupId_list)} items")
     with Pool(N_PROC) as p:
         p.map(Connector(HOSTS).delete_group, test_groupId_list)
+
+
+@cli.command(
+    name="delete-one",
+    help="Deletes a specified group record",
+)
+@click.argument('group_id', required=1)
+def delete_one(group_id):
+    Connector(HOSTS).delete_group(group_id)
+
+
+@cli.command(
+    name="create-one",
+    help="Creates a specified group record",
+)
+@click.argument('group_id', required=1)
+def create_one(group_id):
+    Connector(HOSTS).create_group(group_id)
 
 
 if __name__ == "__main__":
