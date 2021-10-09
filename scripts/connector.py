@@ -8,7 +8,6 @@ import requests
 from requests import Response
 
 logger = logging.getLogger(__name__)
-logging.basicConfig(level="INFO")
 
 
 def retry(max_retries: int = 2, sleep: float = 2):
@@ -145,7 +144,7 @@ def check_group_exists(group_id: str, host: str, node: str) -> bool:
         procedure it will recreate it again if we won't check either it exists or no.
         But doing a pre-check before deletion, we could prevent that situation.
 
-    Here Infinite loop is not best solution, maybe with retry decorator it will be more proper,
+    Here Infinite loop is not best solution, with retry decorator it will be more proper,
     but I leave everything simple. I am sure that modification of this function is pretty simple
     and straightforward.
 
@@ -210,7 +209,7 @@ class Connector:
                 self.rollback_create(group_id)
                 break
 
-    @retry(max_retries=5, sleep=0.2)
+    @retry(max_retries=10, sleep=0.1)
     def rollback_create(self, group_id: str):
         while self.rollback_create_hosts:
             node, host, timestamp = self.rollback_create_hosts[0]
@@ -234,7 +233,7 @@ class Connector:
                 self.rollback_delete(group_id)
                 break
 
-    @retry(max_retries=5, sleep=0.2)
+    @retry(max_retries=10, sleep=0.1)
     def rollback_delete(self, group_id: str):
         while self.rollback_delete_hosts:
             node, host, timestamp = self.rollback_delete_hosts[0]

@@ -1,7 +1,4 @@
 SQLALCHEMY_DATABASE_URI = "sqlite:///storage/cluster.db"
-SQLALCHEMY_TRACK_MODIFICATIONS = False
-SCHEDULER_API_ENABLED = True
-SCHEDULER_TIMEZONE = "UTC"
-SECRET_KEY = "s_trOnG_pa$$w0rD"
+SQLALCHEMY_TRACK_MODIFICATIONS = False  # track modifications of objects and emit signals, we don't need this
 RANDOM_BEHAVIOR = 0.2
 DEBUG = False
