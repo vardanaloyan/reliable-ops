@@ -12,7 +12,7 @@ services:
     environment:
       CONFIG_PATH: "config.cluster"
     command: ["bash", "/start.sh"]
-    ports:
-      - 8080:8080
+#    ports:
+#      - 8080:8080
     networks:
       - default

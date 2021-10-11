@@ -126,10 +126,10 @@ INFO:JOB:Running create-one command with groupId <1>
 INFO:connector:Trying to create http://node01.app.internal.com/v1/group, data: {'groupId': '1'}, headers: {'node': 'node01', 'timestamp': '1633786070.879454'}
 INFO:connector:Response <Response [201]>, CREATED
 
-INFO:connector:Trying to create http://node01.app.internal.com/v1/group, data: {'groupId': '1'}, headers: {'node': 'node02', 'timestamp': '1633786071.001518'}
+INFO:connector:Trying to create http://node02.app.internal.com/v1/group, data: {'groupId': '1'}, headers: {'node': 'node02', 'timestamp': '1633786071.001518'}
 INFO:connector:Response <Response [201]>, CREATED
 
-INFO:connector:Trying to create http://node01.app.internal.com/v1/group, data: {'groupId': '1'}, headers: {'node': 'node03', 'timestamp': '1633786071.135351'}
+INFO:connector:Trying to create http://node03.app.internal.com/v1/group, data: {'groupId': '1'}, headers: {'node': 'node03', 'timestamp': '1633786071.135351'}
 INFO:connector:Response <Response [201]>, CREATED
 ```
 
@@ -194,10 +194,10 @@ INFO:JOB:Running create-one command with groupId <5>
 INFO:connector:Trying to create http://node01.app.internal.com/v1/group, data: {'groupId': '5'}, headers: {'node': 'node01', 'timestamp': '1633806680.426599'}
 INFO:connector:Response <Response [201]>, CREATED
 
-INFO:connector:Trying to create http://node01.app.internal.com/v1/group, data: {'groupId': '5'}, headers: {'node': 'node02', 'timestamp': '1633806680.463768'}
+INFO:connector:Trying to create http://node02.app.internal.com/v1/group, data: {'groupId': '5'}, headers: {'node': 'node02', 'timestamp': '1633806680.463768'}
 INFO:connector:Response <Response [201]>, CREATED
 
-INFO:connector:Trying to create http://node01.app.internal.com/v1/group, data: {'groupId': '5'}, headers: {'node': 'node03', 'timestamp': '1633806680.50237'}
+INFO:connector:Trying to create http://node03.app.internal.com/v1/group, data: {'groupId': '5'}, headers: {'node': 'node03', 'timestamp': '1633806680.50237'}
 INFO:connector:Response <Response [201]>, CREATED
 ```
 
@@ -312,7 +312,7 @@ INFO:JOB:Running stats command for showing statistics of group records
 [True, {'node01': 52, 'node02': 52, 'node03': 52}]
 ```
 We requested for creation of 100 groups from the range of [0-99], but Job managed to create
-only 52 out of 100.
+only 52 out of 100 (Because of Random errors).
 
 Lets run parallel delete command for deletion groups with groupIds [0-99].
 

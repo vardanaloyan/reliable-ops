@@ -8,7 +8,7 @@ import logging
 logger = logging.getLogger("JOB")
 logging.basicConfig(level="INFO")
 
-# For running job script in local machine
+# For running job script in local machine, use these hosts and uncomment `ports` block in `docker-compose.yaml`
 # HOSTS = {
 #     "node01": "http://127.0.0.1:8080",
 #     "node02": "http://127.0.0.1:8080",
